@@ -18,7 +18,7 @@ public class FIrstServlet3 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.print("<script type='text/javascript'>");
-		out.print("location.href='second3';");
+		out.print("location.href='second3?name=Choco';");
 		out.print("</script>");
 		
 		out.close();

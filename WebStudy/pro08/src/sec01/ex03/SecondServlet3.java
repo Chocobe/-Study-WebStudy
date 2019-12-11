@@ -17,9 +17,12 @@ public class SecondServlet3 extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
+		String name = request.getParameter("name");
+		
 		out.print("<html>");
 		out.print("<body>");
-		out.print("location을 이용한 redirect 실습 입니다");
+		out.print("location을 이용한 redirect 실습 입니다<br/>");
+		out.print("GET 방식 질의문자열 name : " + name);
 		out.print("</body>");
 		out.print("</html>");
 		

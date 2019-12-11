@@ -16,6 +16,6 @@ public class FirstServlet2 extends HttpServlet {
 					throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		response.addHeader("Refresh", "1;url=second2");
+		response.addHeader("Refresh", "1;url=second2?name=Chocobe");
 	}
 }

@@ -1,4 +1,14 @@
-#	sec02 - Cookie
+#	팝업창 띄우기
+
+>	popUpTest.html
+>
+>	popUp.html
+
+*	**팝업창 띄우기**와 **팝업띄우지 않기** 설정하기
+
+---
+
+>	sec02 - Cookie
 
 *	Cookie는 클라이언트 PC에 저장된다.
 

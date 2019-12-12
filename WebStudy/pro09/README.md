@@ -8,7 +8,7 @@
 
 ---
 
->	sec02 - Cookie
+#	sec02 - Cookie
 
 *	Cookie는 클라이언트 PC에 저장된다.
 

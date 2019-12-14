@@ -20,4 +20,12 @@
 		<error-code>500</error-code>
 		<location>/err/error500.jsp</location>
 	</error-page>
+	
+	
+<!-- Welcome File -->
+	<welcome-file-list>
+		<welcome-file>/test02/main.jsp</welcome-file>
+		<welcome-file>/test02/add.jsp</welcome-file>
+		<welcome-file>/test02/add.html</welcome-file>
+	</welcome-file-list>
 </web-app>

@@ -27,3 +27,9 @@
 			```
 			
 			* 정적인 처리만 가능
+			
+>	``<jsp:forward page="페이지" flush="true">`` - 포워드 액션 태그
+
+	* ``RequestDispatcher`` 객체의 ``forward()``와 동일한 기능
+	
+	* ``<jsp:param name="변수명" value="변수값"/>``을 이용하여, 메개변수를 전달할 수 있다.

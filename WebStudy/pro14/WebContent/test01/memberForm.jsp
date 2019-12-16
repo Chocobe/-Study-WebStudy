@@ -13,7 +13,7 @@
 	</head>
 
 	<body>
-		<form method="POST" action="member5.jsp">
+		<form method="POST" action="member6.jsp">
 			<h1 style="text-align:center">회원 가입창</h1>
 			
 			<table align="center">

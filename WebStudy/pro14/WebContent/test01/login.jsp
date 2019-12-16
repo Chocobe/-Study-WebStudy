@@ -22,6 +22,6 @@
 		
 		<br/><br/>
 		
-		<a href="${pageContext.request.contextPath}/test01/memberForm.jsp">회원가입 하기</a>
+		<%-- <a href="${pageContext.request.contextPath}/test01/memberForm.jsp">회원가입 하기</a> --%>
 	</body>
 </html>

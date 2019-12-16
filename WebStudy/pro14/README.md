@@ -18,6 +18,6 @@
 	<!-- 아래 두 문장은 동일한 동작을 한다. -->
 	
 	<% request.getParameter("myParam"); %>
-	
+		
 	${param.myParam}
 	```

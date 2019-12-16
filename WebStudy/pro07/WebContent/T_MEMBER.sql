@@ -17,3 +17,5 @@ INSERT INTO T_MEMBER(ID, PWD, NAME, EMAIL)
 VALUES('kim', '1212', '김유신', 'kim@jweb.com');
 
 SELECT * FROM T_MEMBER;
+
+DELETE FROM t_member;

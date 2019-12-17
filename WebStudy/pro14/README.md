@@ -123,3 +123,19 @@
 	```jsp
 	<fmt:message key="key값"/>
 	```
+	
+	>	숫자를 단위별로 구분하여 출력하기
+	```jsp
+	<fmt:formatNumber value="값" type="number" groupingUsed="true"/>
+	// var 속성을 사용할 경우, 출력하지 않고 var에 지정한 변수명에 저장된다.
+	```
+	
+	>	숫자를 화폐로 출력하기
+	```jsp
+	<fmt:formatNumber value="값" type="currency" groupingUsed="true" currencySymbol="\\"/>
+	// var 속성을 사용할 경우, 출력하지 않고 var에 지정한 변수명에 저장된다.
+	
+	>	숫자를 퍼센트로 출력하기
+	<fmt:formatNumber value="값" type="percent" groupingUsed="false"/>
+	// var 속성을 사용할 경우, 출력하지 않고 var에 지정한 변수명에 저장된다.
+	```

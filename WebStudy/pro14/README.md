@@ -30,24 +30,24 @@
 	
 *	**변수 지원**, **제어문**, **반복문**, **URL처리**를 위한 JSTL이다.
 
+	>	변수 생성하기
 	```jsp
-	<!-- 변수 생성하기 -->
 	<c:set var="변수명" value="값" scope="스코프값"/>
 	```
 	
+	>	변수 삭제하기
 	```jsp
-	<!-- 변수 삭제하기 -->
 	<c:remove var="변수명" scope="스코프값"/>
 	```
 	
+	>	단일 조건문(if)
 	```jsp
-	<!-- 단일 조건문(if) -->
 	<c:if test="조건" var="결과값을 저장할 변수명">
 	</c:if>
 	```
-	
+
+	>	switch또는 if else 조건문	
 	```jsp
-	<!-- switch또는 if else 조건문 -->
 	<c:choose>
 		<c:when test="조건">
 		</c:when>
@@ -57,20 +57,20 @@
 	</c:choose>
 	```
 	
+	>	반복문
 	```jsp
-	<!-- 반복문 -->
 	<c:forEach var="변수" items="반복할 배열 또는 Collections객체" begin="시작인덱스" end="끝인덱스" step="반복문의 스텝값" varStatus="반복문 상태변수">
 	</c:forEach>
 	```
 	
+	>	반복문(토큰 - 문자열 잘라내기 기능을 가진 반복문)
 	```jsp
-	<!-- 반복문(토큰 - 문자열 잘라내기 기능을 가진 반복문) -->
 	<c:forTokens var="변수" items="반복할 문자열" delims="문자열을 나눌 문자">
 	</c:forTokens>
 	```
 	
+	>	url처리
 	```jsp
-	<!-- url처리 -->
 	<c:url var="변수명" value="url값">
 		<c:param name="파라메터명" value="값"/>
 	</c:url>
@@ -78,16 +78,16 @@
 	<!-- 해당 URL로 설정한 파라메터까지 함께 이동한다 -->
 	```
 	
+	>	redirect
 	```jsp
-	<!-- redirect -->
 	<c:redirect url="url값">
 		<c:param name="변수명" value="값"/>
 	</c:redirect>
 	<!-- request.sendRedirect() 메서드와 동일한 동작을 한다 -->
 	```
-	
+
+	>	out	
 	```jsp
-	<!-- out -->
 	<c:out value="출력할 값" default="값이 없을경우 출력할 기본값" escapeXml="true"/>
 	<!-- escapeXml의 값은 특수문자 출력을 위한 escape문자 변환 여부를 설정한다. - 기본값:true(escape문자 사용함) -->	
 	<!-- EL과 같은 동작을 하지만, default를 이용하여 값이 없을 경우의 기본값을 설정할 수 있다는 장점이 있다. -->

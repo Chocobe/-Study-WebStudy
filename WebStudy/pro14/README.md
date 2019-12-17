@@ -1,6 +1,6 @@
 #	pro14 - EL과 JSTL
 
->	elTest : EL예제
+##	elTest : EL예제
 
 *	``${empty 변수}`` : ``null``이거나 ``""(빈 문자열)``일 경우 ``true``반환
 	
@@ -10,7 +10,7 @@
 	
 ---
 
->	EL 내장객체
+##	EL 내장객체
 
 *	질의문자열 내장객체 (param)
 	
@@ -24,7 +24,7 @@
 	
 ---
 
->	JSTL - CORE
+##	JSTL - CORE
 
 *	JSTL은 표준 액션태그 라고 한다.
 	
@@ -91,4 +91,35 @@
 	<c:out value="출력할 값" default="값이 없을경우 출력할 기본값" escapeXml="true"/>
 	<!-- escapeXml의 값은 특수문자 출력을 위한 escape문자 변환 여부를 설정한다. - 기본값:true(escape문자 사용함) -->	
 	<!-- EL과 같은 동작을 하지만, default를 이용하여 값이 없을 경우의 기본값을 설정할 수 있다는 장점이 있다. -->
+	```
+	
+---
+
+##	JSTL - Formatting
+
+*	**지역설정(다국어)**, **메시지 형식**, **숫자 및 날짜 형식**
+
+	>	requestCharacterEncoding 설정하기
+	```jsp
+	<fmt:requestEncoding value="UTF-8"/>
+	```
+	
+	>	지역(문자) 설정하기
+	```jsp
+	<fmt:setLocale value="언어코드(ko, en)"/>
+	```
+	
+	>	리소스 번들(=properties 파일)을 로드한다.
+	```jsp
+	<fmt:setBundle basename="페키지명.파일명(확장자인 .properties는 적지 않는다)"/>
+	```
+	
+	>	리소스 번들(=properties 파일)을 이 태그 바디에만 로드한다.
+	```jsp
+	<fmt:bundle basename="페키지명.파일명(확장자인 .properties는 적지 않는다)"/>
+	```
+	
+	>	리소스 번들(.properties파일)의 값에 접근할 때 사용한다.
+	```jsp
+	<fmt:message key="key값"/>
 	```

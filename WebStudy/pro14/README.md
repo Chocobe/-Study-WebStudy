@@ -57,4 +57,21 @@
 	<!-- 반복문(토큰 - 문자열 잘라내기 기능을 가진 반복문) -->
 	<c:forTokens var="변수" items="반복할 문자열" delims="문자열을 나눌 문자">
 	</c:forTokens>
+	
+	<!-- url처리 -->
+	<c:url var="변수명" value="url값">
+		<c:param name="파라메터명" value="값"/>
+	</c:url>
+	<a href="${변수명}">이동</a>
+	<!-- 해당 URL로 설정한 파라메터까지 함께 이동한다 -->
+	
+	<!-- redirect -->
+	<c:redirect url="url값">
+		<c:param name="변수명" value="값"/>
+	</c:redirect>
+	<!-- request.sendRedirect() 메서드와 동일한 동작을 한다 -->
+	
+	<!-- out -->
+	<c:out value="출력할 값" default="값이 없을경우 출력할 기본값" escapeXml="true"/>
+	<!-- escapeXml의 값은 특수문자 출력을 위한 escape문자 변환 여부를 설정한다. - 기본값:true(escape문자 사용함) -->	
 	```

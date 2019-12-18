@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ajax로 도서정보 받기</title>
+	</head>
+
+	<body>
+		<div id="bookInfo"></div>
+		<input type="button" value="도서정보 요청" onclick="fn_process()">
+		
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript">
+			function fn_process() {
+				$.ajax({
+					type: "POST",
+					url: "http://localhost:8090/pro16/ajaxTest2",
+					async: false,
+					dataType: "XML",
+					success: function(info, textStatus) {
+						$(info).find("book").each(function() {
+							var title = $(this).find("title").text();
+							var writer = $(this).find("writer").text();
+							var image = $(this).find("image").text();
+							
+							$("#bookInfo").append(
+								"<p>" + title + "</p>" +
+								"<p>" + writer + "</p>" +
+								"<img src='" + image + "' width='600'>"
+							);
+						});
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

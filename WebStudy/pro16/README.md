@@ -57,8 +57,8 @@
 		url: "요청할 URL",
 		type: "POST" 또는 "GET",
 		async: "true(비동기)" 또는 "false(동기)",
-		dataType: "서버에서 전송받을 데이터 형식",
-		data: {서버로 전송할 데이터},
+		dataType: "서버에서 전송받을 데이터 형식(text, xml, html, json 등)",
+		data: {서버로 전송할 데이터(파라메터)},
 		success: function(data, textStatus) {
 			// 정상 요청, 응답 시 처리
 		},
@@ -67,6 +67,52 @@
 		},
 		complete: function(data, textStatus) {
 			// 작업 완료 후 처리
+		}
+	});
+	
+*	``success(첫번째인자, textStatus)``, ``error(첫번째인자, textStatus)``, ``complete(첫번째인자, textStatus)``의 **첫번째인자**는?
+
+	*	Ajax가 요청한 서블릿에서 ``request.getWriter().print("값");``의 ``값``이 ``첫번째인자``로 들어간다.
+	```
+	
+---
+
+##	AJAX - XML로 처리결과 가져오기 (test03.ajax2.html / sec01.ex01.AjaxTest2)
+
+*	XML에서는 ``<임의의 태그명></임의의 태그명>``형식으로 태그를 만들어 사용한다.
+
+*	Ajax가 요청한 서블릿에서 처리 결과를 XML형식의 문자열로 만들고, ``request.getWriter().print("결과");``의 형식으로 반환한다.
+
+	```xml
+	<main>
+		<book>
+			<title></title>
+			<writer></writer>
+			<image></image>
+		</book>
+	</main>
+	```
+
+*	반환된 값은 요청한 페이지(Ajax로 요청했던 페이지)의 해당 ``$.ajax({})``의 ``success:function("첫번째인자", textStatus) { }``에서 **첫번째 인자**로 가져올 수 있다.
+
+*	가져온 인자는 다음 예와 같이 선택자로 값을 가져올 수 있다.
+
+	```javascript
+	$.ajax({
+		type: "POST",
+		async: false,
+		url: "http://localhost:8090/pro16/ajaxTest2",
+		dataType: "XML",
+		success: function(info, textStatus) {
+			$(info).find("book").each(function() {
+				var title = $(this).find("title");
+				var writer = $(this).find("writer");
+				var image = $(this).find("image");
+				
+				$("#target").append("<p>title : " + title + "</p>");
+				$("#target").append("<p>writer : " + writer + "</p>");
+				$("#target").append("<img src='" + image + "'>");
+			});
 		}
 	});
 	```

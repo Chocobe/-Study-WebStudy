@@ -122,3 +122,25 @@
 		}
 	});
 	```
+	
+---
+
+##	JSON - Javascript Object Notation
+
+*	JSON은 **javascript객체 표기법** 이다.
+
+*	JSON은 ``{"키": "값", "키": "값" }`` 의 형식이다.
+
+>	``var parsedData = JSON.parse(대상);`` : "대상"을 Javascript객체로 변환해 준다. (javascript로 사용하기 위해 형변환을 해줘야 한다)
+
+>	``var stringData = JSON.stringify(대상);`` : "대상"을 문자열로 이루어진 객체로 반환해 준다.
+
+>	JSON객체를 만들 떄, "" 또는 '', `` 사용법
+
+	```javascript
+	// 외부를 묶는 기호는 벡틱(``) 또는 작은따옴표('')를 사용해야 한다.
+	// 내부의 속성명에는 ""를 사용해야 한다.
+	var value = '{"age": [11, 22, 33]}';
+	```
+	
+*	전달할 데이터가 많을 경우, JSON을 배열로 만들어서 사용하면 된다.

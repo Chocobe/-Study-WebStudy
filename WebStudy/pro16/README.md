@@ -123,6 +123,10 @@
 	});
 	```
 	
+*	Ajax의 ``error``가 호출된다면, Ajax속성 중 ``dataType``을 확인하자. (타입이 잘못된 경우 에러가 발생한다)
+
+*	Ajax의 ``dataType``기본값은 ``TEXT``이다.
+	
 ---
 
 ##	JSON - Javascript Object Notation
@@ -144,3 +148,65 @@
 	```
 	
 *	전달할 데이터가 많을 경우, JSON을 배열로 만들어서 사용하면 된다.
+
+---
+
+##	Servlet & Ajax & JSON
+
+*	Servlet에서 JSON을 사용하기 위해서는 **json-simple-XXX.jar**가 필요하다.
+
+*	Servlet에서 JSON객체 생성
+
+	*	``JSONObject`` : JSON 객체 클래스
+	
+	```java
+	JSONObject jsonData = new JSONObject();
+	jsonData.put("키", "값");
+	```
+	
+	*	``JSONArray`` : JSON 객체들을 가지는 배열 객체
+	
+	```java
+	JSONArray jsonArray = new JSONArray();
+	
+	JSONObject jsonData1 = new JSONObject();
+	JSONObject jsonData2 = new JSONObject();
+	
+	jsonArray.add(jsonData1);
+	jsonArray.add(jsonData2);
+	```
+	
+*	Ajax로 서블릿에 JSON객체를 보낼떄는 **문자열**로 된 JSON객체를 보내자. (dataType="text")
+
+	```javascript
+	$.ajax({
+		dataType: "text"
+	});
+	```
+
+*	서블릿에서 Ajax로 응답할 때 역시 **문자열**로 된 JSON객체를 보내야 한다.
+
+	```java
+	JSONObject jsonData = new JSONObject();
+	String jsonStr = jsonData.toJSONString();
+	
+	PrintWriter out = response.getWriter();
+	out.print(jsonStr);
+	```
+	
+*	서블릿에서 JSON배열을 전송할 때는 ``JSONArray``객체를 ``JSONObject``객체에 넣어서 보내야 한다.
+
+	```java
+	JSONObject data1 = new JSONObject();
+	JSONObject data2 = new JSONObject();
+	
+	JSONArray jsonArray = new JSONArray();
+	jsonArray.add(data1);
+	jsonArray.add(data2);
+	
+	JSONObject resultJsonData = new JSONObject();
+	resultJsonData.put("키", jsonArray);
+	
+	PrintWriter out = response.getWriter();
+	out.print(resultJsonData);
+	```

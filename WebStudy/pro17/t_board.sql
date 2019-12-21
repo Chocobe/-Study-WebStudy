@@ -8,7 +8,7 @@ CREATE TABLE t_board(
 	writeDateTime		TIMESTAMP		DEFAULT CURRENT_TIMESTAMP(),
 	writeDate			DATE				AS (DATE(writeDateTime)),
 	id						VARCHAR(10),
-	FOREIGN KEY(id)				REFERENCES	t_member(id)
+	FOREIGN KEY(id)	REFERENCES	t_member(id)
 );
 
 
@@ -31,7 +31,6 @@ VALUES(5, 3, '답변 입니다.', '상품 좋습니다', NULL, 'lee');
 INSERT INTO t_board(articleNO, parentNO, title, content, imageFileName, id)
 VALUES(6, 2, '상품후기 입니다', '이순신씨의 상품 사용후기를 올립니다!!', NULL, 'lee');
 
-COMMIT;
 
 SELECT * FROM t_board;
 

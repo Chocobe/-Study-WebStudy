@@ -1,9 +1,9 @@
 CREATE TABLE T_MEMBER(
-	id						VARCHAR(10)		PRIMARY KEY,
-	pwd					VARCHAR(10)		NOT NULL,
-	name					VARCHAR(50),
-	email					VARCHAR(50)		NOT NULL,
-	joinDateTime		TIMESTAMP		DEFAULT CURRENT_TIMESTAMP(),
+	id					VARCHAR(10)		PRIMARY KEY,
+	pwd				VARCHAR(10)		NOT NULL,
+	name				VARCHAR(50),
+	email				VARCHAR(50)		NOT NULL,
+	joinDateTime	TIMESTAMP		DEFAULT CURRENT_TIMESTAMP(),
 	joinDate			DATE				AS (DATE(joinDateTime))
 );
 

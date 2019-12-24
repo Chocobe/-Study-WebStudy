@@ -1,4 +1,4 @@
-package board01;
+package sec03.brd01;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -113,3 +113,4 @@ SELECT CASE WHEN LEVEL-1 > 0 then CONCAT(CONCAT(REPEAT('    ', level  - 1),'┗'
           JOIN ANIMAL
          WHERE @id IS NOT NULL) fnc
   JOIN ANIMAL ani ON fnc.id = ani.id
+-- WHERE ani.p_id = 2

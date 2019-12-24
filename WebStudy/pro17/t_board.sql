@@ -33,4 +33,3 @@ VALUES(6, 2, '상품후기 입니다', '이순신씨의 상품 사용후기를 �
 
 
 SELECT * FROM t_board;
-

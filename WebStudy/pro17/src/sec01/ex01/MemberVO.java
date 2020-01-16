@@ -7,7 +7,7 @@ public class MemberVO {
 	private String pwd;
 	private String name;
 	private String email;
-	private Date joinDate;
+	private Date joinDate; 
 	
 	public MemberVO() { }
 	

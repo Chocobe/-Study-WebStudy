@@ -21,6 +21,56 @@
 		<result property="joinDate" column="joinDate"/>
 	</resultMap> 
 -->
+
+	<select id="foreachSelect" resultMap="memResult" parameterType="java.util.Map">
+		<![CDATA[
+			SELECT * FROM t_member
+		]]>
+		
+		WHERE name in
+		
+		<foreach item="item" collection="list" open=" (" separator="," close=")">
+			#{item}
+		</foreach>
+		
+		ORDER BY joinDate DESC
+	</select>
+
+	<select id="searchMember" parameterType="memberVO" resultMap="memResult">
+		<![CDATA[
+			SELECT * FROM t_member
+		]]>
+		
+<!--  		
+		<where>
+			<if test="name != '' and name != null">
+				name=#{name}
+			</if>
+			
+			<if test="email != '' and email != null">
+				AND email=#{email}
+			</if>
+		</where> 
+ -->
+
+		<where>
+			<choose>
+				<when test="name != '' and name != null and email != '' and email != null">
+					name=#{name} AND email=#{email}
+				</when>
+				
+				<when test="name != '' and name != null">
+					name=#{name}
+				</when>
+				
+				<when test="email != '' and email != null">
+					email=#{email}
+				</when>
+			</choose>
+		</where>
+		
+		ORDER BY joinDate DESC
+	</select>
 	
 	<select id="selectAllMemberList" resultMap="memResult">
 		<![CDATA[

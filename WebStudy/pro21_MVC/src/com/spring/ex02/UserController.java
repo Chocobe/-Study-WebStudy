@@ -61,7 +61,10 @@ public class UserController extends MultiActionController {
 	
 	private String getMyViewName(HttpServletRequest request) throws Exception {
 		String servletPath = request.getServletPath();
-		String viewName = servletPath.replace(".do", ".jsp");
+		String viewName = servletPath.replace(".do", "");
+		
+		int lastSlashIdx = viewName.lastIndexOf("/");
+		viewName = viewName.substring(lastSlashIdx);
 		
 		return viewName;
 	}

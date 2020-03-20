@@ -20,7 +20,7 @@
 				<tr>
 					<th>아이디</th>
 					<th>비밀번호</th>
-				</tr>				
+				</tr>
 				
 				<tr align="center">
 					<td><input type="text" name="userID" value="" size="20"></td>

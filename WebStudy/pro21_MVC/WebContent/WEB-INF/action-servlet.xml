@@ -24,14 +24,13 @@
 	
 	
 <!-- DispatcherServlet 객체에 DI되어 사용되는 빈(Bean)들 -->
-	
-	<!-- 
+	 
  	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 		<property name="prefix" value="/test"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	-->
+	
 	
 	<bean id="userUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">

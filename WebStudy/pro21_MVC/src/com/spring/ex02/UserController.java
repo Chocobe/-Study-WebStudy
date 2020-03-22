@@ -9,10 +9,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 public class UserController extends MultiActionController {
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String userID = "";
-		String password = "";
-		
-		String viewName = getMyViewName(request);
-				
+		String password ="";
 		ModelAndView mav = new ModelAndView();
 		
 		request.setCharacterEncoding("UTF-8");
@@ -22,10 +19,7 @@ public class UserController extends MultiActionController {
 		
 		mav.addObject("userID", userID);
 		mav.addObject("password", password);
-		
-		//mav.setViewName("result");
-		mav.setViewName(viewName);
-		System.out.println("ViewName : " + viewName);
+		mav.setViewName("result");
 		
 		return mav;
 	}
@@ -33,6 +27,7 @@ public class UserController extends MultiActionController {
 	
 	public ModelAndView memberInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
+		
 		ModelAndView mav = new ModelAndView();
 		
 		String id = request.getParameter("id");
@@ -48,24 +43,5 @@ public class UserController extends MultiActionController {
 		mav.setViewName("memberInfo");
 		
 		return mav;
-	}
-	
-	
-	public ModelAndView loginForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = getMyViewName(request);
-		ModelAndView mav = new ModelAndView(viewName);
-		
-		return mav;
-	}
-	
-	
-	private String getMyViewName(HttpServletRequest request) throws Exception {
-		String servletPath = request.getServletPath();
-		String viewName = servletPath.replace(".do", "");
-		
-		int lastSlashIdx = viewName.lastIndexOf("/");
-		viewName = viewName.substring(lastSlashIdx);
-		
-		return viewName;
 	}
 }

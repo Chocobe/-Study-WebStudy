@@ -14,11 +14,11 @@
 	<body>
 		<table border="1" align="center" width="100%">
 			<tr align="center" bgcolor="lightgreen">
-				<th>아이디</th>
-				<th>비밀번호</th>
-				<th>이름</th>
-				<th>이메일</th>
-			</tr>
+				<th><b>아이디</b></th>
+				<th><b>비밀번호</b></th>
+				<th><b>이름</b></th>
+				<th><b>이메일</b></th>
+			</tr>			
 			
 			<tr align="center">
 				<td>${id}</td>

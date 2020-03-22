@@ -15,32 +15,25 @@
 	</head>
 
 	<body>
-		<form method="POST" action="${contextPath}/test/memberInfo.do">
-			<h1 class="text_center">회원 가입창</h1>
-			
-			<table align="center">
+		<form method="POST" action="${contextPath}/views/login.do">
+			<table>
 				<tr>
-					<th><p align="right">아이디</p></th>
+					<th>아이디</th>
 					<td><input type="text" name="id"></td>
 				</tr>
 				
 				<tr>
-					<th><p align="right">비밀번호</p></th>
+					<th>비밀번호</th>
 					<td><input type="password" name="pwd"></td>
 				</tr>
 				
 				<tr>
-					<th><p align="right">이름</p></th>
+					<th>이름</th>
 					<td><input type="text" name="name"></td>
 				</tr>
 				
 				<tr>
-					<th><p align="right">이메일</p></th>
-					<td><input type="text" name="email"></td>
-				</tr>
-				
-				<tr>
-					<td colspan="2"><input type="submit" value="회원정보"></td>
+					<td colspan="2"><input type="submit" value="로그인"></td>
 				</tr>
 			</table>
 		</form>

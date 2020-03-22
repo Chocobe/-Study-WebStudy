@@ -10,7 +10,7 @@
 						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 						http://www.springframework.org/schema/context
 						http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<!-- 					
+
 	<bean id="simpleUrlController" class="com.spring.ex01.SimpleUrlController"/>
 	
 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
@@ -20,17 +20,15 @@
 			</props>
 		</property>
 	</bean>
-	-->
 	
+	<!--  -->
 	
-<!-- DispatcherServlet 객체에 DI되어 사용되는 빈(Bean)들 -->
-	 
- 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/test"/>
+		
+		<property name="prefix" value="/test/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	
 	
 	<bean id="userUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -49,7 +47,6 @@
 			<props>
 				<prop key="/test/login.do">login</prop>
 				<prop key="/test/memberInfo.do">memberInfo</prop>
-				<prop key="/test/loginForm.do">loginForm</prop>
 			</props>
 		</property>
 	</bean>

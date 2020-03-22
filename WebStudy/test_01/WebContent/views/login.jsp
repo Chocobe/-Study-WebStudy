@@ -12,7 +12,8 @@
 	</head>
 
 	<body>
-		<h1>아이디 : ${userID}</h1>
-		<h1>비번 : ${password}</h1>
+		<p><b>아이디 : </b>${id}</p>
+		<p><b>비밀번호 : </b>${pwd}</p>
+		<p><b>이름 :</b>${name}</p>
 	</body>
 </html>

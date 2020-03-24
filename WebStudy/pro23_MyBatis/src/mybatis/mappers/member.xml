@@ -17,4 +17,119 @@
 			SELECT * FROM t_member ORDER BY joinDate DESC
 		]]>
 	</select>
+	
+	<select id="selectName" resultType="String">
+		<![CDATA[
+			SELECT name FROM t_member WHERE id='초코비'
+		]]>
+	</select>
+	
+	<select id="selectPwd" resultType="String">
+		<![CDATA[
+			SELECT pwd FROM t_member WHERE id='초코비'
+		]]>
+	</select>
+	
+	<select id="selectMemberById" resultType="memberVO" parameterType="String">
+		<![CDATA[
+			SELECT * FROM t_member WHERE id=#{id}
+		]]>
+	</select>
+	
+	<select id="selectMemberByPwd" resultType="memberVO" parameterType="String">
+		<![CDATA[
+			SELECT * FROM t_member WHERE pwd=#{pwd}
+		]]>
+	</select>
+	
+	<insert id="insertMember" parameterType="memberVO">
+		<![CDATA[
+			INSERT INTO t_member(id, pwd, name, email) VALUES(#{id}, #{pwd}, #{name}, #{email})
+		]]>
+	</insert>
+	
+	<insert id="insertMember2" parameterType="java.util.HashMap">
+		<![CDATA[
+			INSERT INTO t_member(id, pwd, name, email) VALUES(#{id}, #{pwd}, #{name}, #{email})
+		]]>
+	</insert>
+	
+	<update id="updateMember" parameterType="memberVO">
+		<![CDATA[
+			UPDATE t_member SET pwd=#{pwd}, name=#{name}, email=#{email}
+			WHERE id=#{id}
+		]]>
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+		<![CDATA[
+			DELETE FROM t_member WHERE id=#{id}
+		]]>
+	</delete>
+	
+	
+	<!-- 동적SQL -->
+	<select id="searchMember" parameterType="memberVO" resultMap="memResult">
+		<![CDATA[
+			SELECT * FROM t_member
+		]]>
+		
+		<where>
+			<if test="name != '' and name != null">
+				name = #{name}
+			</if>
+			
+			<if test="email != '' and email != null">
+				and email = #{email}
+			</if>
+		</where>
+		
+		ORDER BY joinDate DESC
+	</select>
+	
+	<sql id="a">
+		<![CDATA[
+			SELECT * FROM t_member
+		]]>
+	</sql>
+
+	<select id="searchMember2" resultMap="memResult" parameterType="memberVO">
+		<include refid="a"/>
+		
+		<where>
+			<choose>
+				<when test="name != '' and name != null and email != '' and email != null">
+					name=#{name} and email=#{email}
+				</when>
+				
+				<when test="name != '' and name != null">
+					name=#{name}
+				</when>
+				
+				<when test="email != '' and email != null">
+					email=#{email}
+				</when>
+			</choose>
+		</where>
+		
+		ORDER BY joinDate DESC
+	</select>	
+	
+	<select id="foreachSelect" resultMap="memResult" parameterType="java.util.Map">
+		<include refid="a"/>
+		
+		<![CDATA[
+			WHERE name IN
+		]]>
+		
+		<foreach item="item" collection="list" open="(" separator=", " close=")">
+			<![CDATA[
+				'${item}'
+			]]>
+		</foreach>
+		
+		<![CDATA[
+			ORDER BY joinDate DESC
+		]]>
+	</select>
 </mapper>

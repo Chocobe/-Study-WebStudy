@@ -8,9 +8,11 @@
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	   xmlns="http://www.springframework.org/schema/beans">
 	   
-	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
-			<value>/WEB-INF/config/jdbc.properties</value>
+			<list>
+				<value>/WEB-INF/config/jdbc.properties</value>
+			</list>
 		</property>
 	</bean>
 	
@@ -23,16 +25,25 @@
 	
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="configLocation" value="classpath:mybatis/model/modelConfig.xml"/>
-		<property name="mapperLocations" value="classpath:mybatis/mappers/*.xml"/>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:/mybatis/mappers/*.xml</value>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactoryBean"/>
 	</bean>
-	
-	<bean id="memberDAO" class="com.spring.member.dao.MemberDAOImpl">
+	   
+	<bean id="accDao" class="com.spring.account.AccountDao">
 		<property name="sqlSession" ref="sqlSession"/>
 	</bean>
+	
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="txManager"/>
 	   
 </beans>

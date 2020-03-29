@@ -16,7 +16,7 @@
 		<![CDATA[
 			UPDATE cust_account
 			SET balance=balance + 5000000
-			WHERE accountNo = '70-490-911
+			WHERE accountNo = '70-490-911'
 		]]>
 	</update>
 </mapper>

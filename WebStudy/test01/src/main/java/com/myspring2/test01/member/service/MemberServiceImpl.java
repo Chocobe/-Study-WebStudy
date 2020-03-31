@@ -11,7 +11,7 @@ import com.myspring2.test01.member.vo.MemberVO;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
-	@Autowired MemberDao memberDao;
+	@Autowired private MemberDao memberDao;
 	
 	
 	@Override

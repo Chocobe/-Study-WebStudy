@@ -11,7 +11,7 @@ import com.myspring2.test01.member.vo.MemberVO;
 
 @Repository("memberDao")
 public class MemberDaoImpl implements MemberDao {
-	@Autowired SqlSession sqlSession;
+	@Autowired private SqlSession sqlSession;
 	
 	
 	@Override

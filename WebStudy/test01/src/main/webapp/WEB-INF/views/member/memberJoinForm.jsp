@@ -22,7 +22,7 @@
 				<tr>
 					<th>아이디</th>
 					<td><input type="text" name="id"></td>
-				</tr>				
+				</tr>
 				
 				<tr>
 					<th>비밀번호</th>
@@ -41,9 +41,9 @@
 				
 				<tr>
 					<td><input type="submit" value="회원가입"></td>
-					<td><input type="button" value="회원목록" onclick="location.href='${contextPath}/member/membersList.do';"></td>
+					<td><input type="button" value="홈으로" onclick="location.href='${contextPath}/index.do';"></td>
 				</tr>
-			</table>	
+			</table>
 		</form>
 	</body>
 </html>

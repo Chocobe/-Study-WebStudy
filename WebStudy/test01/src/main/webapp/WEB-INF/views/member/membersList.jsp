@@ -26,7 +26,7 @@
 				<th>가입일</th>
 				<th>삭제</th>
 			</tr>
-			
+		
 			<c:forEach var="member" items="${membersList}">
 				<tr>
 					<td>${member.id}</td>
@@ -39,6 +39,7 @@
 			</c:forEach>
 		</table>
 		
-		<input type="button" value="회원가입" onclick="location.href='${contextPath}/member/memberForm.do';">
+		<input type="button" value="홈으로" onclick="location.href='${contextPath}/index.do';"><br/>
+		<input type="button" value="회원가입" onclick="location.href='${contextPath}/member/memberJoinForm.do';">	
 	</body>
 </html>

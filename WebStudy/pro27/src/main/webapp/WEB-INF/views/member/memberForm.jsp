@@ -18,7 +18,7 @@
 		<h1>회원가입</h1>
 		
 		<form method="POST" action="${contextPath}/member/addMember.do">
-			<table>
+			<table align="center">
 				<tr>
 					<th>아이디</th>
 					<td><input type="text" name="id"></td>

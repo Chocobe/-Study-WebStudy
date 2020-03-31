@@ -32,4 +32,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public int deleteMember(String id) throws DataAccessException {
 		return sqlSession.delete("mapper.member.deleteMember", id);
 	}
+	
+	
+	@Override
+	public MemberVO loginById(MemberVO memberVO) throws DataAccessException {
+		return sqlSession.selectOne("mapper.member.loginById", memberVO);
+	}
 }

@@ -17,7 +17,7 @@
 	<body>
 		<h1>회원목록</h1>
 		
-		<table border="1" style="border-collapse: collapse;">
+		<table border="1" align="center" style="border-collapse: collapse;">
 			<tr>
 				<th>아이디</th>
 				<th>비밀번호</th>
